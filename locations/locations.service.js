@@ -3,7 +3,7 @@
 const Location = require('./locations.model')
 
 function findAll () {
-	return [1,2,3,4]
+	return [1,2,3,4] 
 }
 
 module.exports.findAll = findAll
