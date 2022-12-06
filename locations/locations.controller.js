@@ -5,7 +5,7 @@ const router = require('express').Router()
 const locationsService = require('./locations.model')
 
 //get all function
-router.get('/', async(req, res) => {
+router.get('/locations', async(req, res) => {
 		try{
 			const locations = await locationsService.find()
 			res.json(locations)
@@ -15,7 +15,7 @@ router.get('/', async(req, res) => {
 })
 
 //get location by id
-router.get('/:id', async(req, res) => {
+router.get('/locations/:id', async(req, res) => {
 	try{
 		const location = await locationsService.findById(req.params.id)
 		res.json(location)
@@ -25,7 +25,7 @@ router.get('/:id', async(req, res) => {
 })
 
 //function post
-router.post('/', async(req, res)=>{
+router.post('/locations', async(req, res)=>{
 	const location = new locationsService({
 		filmType: req.body.filmType,
 		filmProducerName: req.body.filmProducerName,
@@ -50,7 +50,8 @@ router.post('/', async(req, res)=>{
 	}
 })
 
-router.patch('/:id', async( req, res)=>{
+//update fonction by id
+router.patch('/locations/:id', async( req, res)=>{
 		try{
 			const location = await locationsService.findById(req.params.id)
 
@@ -76,7 +77,7 @@ router.patch('/:id', async( req, res)=>{
 
 
 //delete function
-router.delete('/:id', async (req,res)=>{
+router.delete('/locations/:id', async (req,res)=>{
 		try{
 			const location = await locationsService.findByIdAndRemove(req.params.id)
 		}catch(Err){
