@@ -76,7 +76,7 @@ router.patch('/locations/:id', async( req, res)=>{
 })
 
 
-//delete function
+//delete function with id
 router.delete('/locations/:id', async (req,res)=>{
 		try{
 			const location = await locationsService.findByIdAndRemove(req.params.id)
@@ -85,6 +85,7 @@ router.delete('/locations/:id', async (req,res)=>{
 		}
 
 })
+
 
 
 module.exports = router
